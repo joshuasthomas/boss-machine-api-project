@@ -1,13 +1,19 @@
 const express = require('express');
 const apiRouter = express.Router();
+const db = require('./db');
+
+const modelMinions = 'minions';
+const modelIdeas = 'ideas';
+const modelMeetings = 'meetings';
+const modelWork = 'work';
 
 // Covers '/minions' path
-apiRouter.route('/minions')
+apiRouter.route(`/${modelMinions}`)
 .get( (req, res, next) => {
-
+    res.send(db.getAllFromDatabase(modelMinions));
 })
 .post( (req, res, next) => {
-    
+    const newMinion = req.body;
 })
 .get('/:minionid', (req, res, next) => {
     
@@ -20,12 +26,12 @@ apiRouter.route('/minions')
 });
 
 // Covers '/ideas' path
-apiRouter.route('ideas')
+apiRouter.route(`/${modelIdeas}`)
 .get( (req, res, next) => {
-
+    res.send(db.getAllFromDatabase(modelIdeas));
 })
 .post( (req, res, next) => {
-    
+    const newIdea = req.body;
 })
 .get('/:ideaid', (req, res, next) => {
     
@@ -38,12 +44,13 @@ apiRouter.route('ideas')
 });
 
 // Covers '/meetings' path
-apiRouter.route('meetings')
+apiRouter.route(`/${modelMeetings}`)
 get( (req, res, next) => {
-
+    res.send(db.getAllFromDatabase(modelMeetings));
 })
 .post( (req, res, next) => {
-    
+    const newMeeting = db.createMeeting();
+    res.send(newMeeting);
 })
 .delete( (req, res, next) => {
     
