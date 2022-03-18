@@ -8,70 +8,22 @@ const modelIdeas = 'ideas';
 const modelMeetings = 'meetings';
 const modelWork = 'work';
 
+//initialize db
+minions = db.getAllFromDatabase(modelMinions);
+ideas = db.getAllFromDatabase(modelIdeas);
+meetings = db.getAllFromDatabase(modelMeetings);
+//workdb
 
-// Covers '/minions' path
-apiRouter.route(`/${modelMinions}`)
-.get( (req, res, next) => {
-    res.send(db.getAllFromDatabase(modelMinions));
-})
-.post( (req, res, next) => {
-    const newMinion = req.body;
-    db.addToDatabase(modelMinions, body);
-});
-apiRouter.route(`/${modelMinions}/minionid`)
-.get((req, res, next) => {
-    const id = req.params.minionid;
-    const reqMinion = db.getFromDatabaseById(modelMinions, id);
-    res.send(reqMinion);
-})
-.put((req, res, next) => {
-    const id = req.params.minionid;
-    const upMinion = db.updateInstanceInDatabase(modelMinions, db.getFromDatabaseById(modelMinions, id) );
-    res.send(upMinion);
-})
-.delete((req, res, next) => {
-    const id = req.params.minionid;
-    const isDeleted = db.deleteFromDatabasebyId(modelMinions, id);
-    res.send(isDeleted);
-});
+// Mount new minionRouter below at the '/minions' path.
+const minionRouter = require('./apiMinion.js');
+apiRouter.use('/minions', minionRouter);
 
-// Covers '/ideas' path
-apiRouter.route(`/${modelIdeas}`)
-.get( (req, res, next) => {
-    res.send(db.getAllFromDatabase(modelIdeas));
-})
-.post( (req, res, next) => {
-    const newIdea = req.body;
-});
-apiRouter.route(`/${modelIdeas}/ideaid`)
-.get( (req, res, next) => {
-    const id = req.params.ideaid;
-    const reqMinion = db.getFromDatabaseById(modelMinions, id);
-    res.send(reqMinion);
-})
-.put( (req, res, next) => {
-    const id = req.params.ideaid;
-    const upMinion = db.updateInstanceInDatabase(modelMinions, db.getFromDatabaseById(modelMinions, id) );
-    res.send(upMinion);
-})
-.delete( (req, res, next) => {
-    const id = req.params.ideaid;
-    const isDeleted = db.deleteFromDatabasebyId(modelMinions, id);
-    res.send(isDeleted);
-});
+// Mount new ideaRouter below at the '/ideas' path.
+const ideaRouter = require('./apiIdea.js');
+apiRouter.use('/ideas', ideaRouter);
 
-// Covers '/meetings' path
-apiRouter.route(`/${modelMeetings}`)
-.get( (req, res, next) => {
-    res.send(db.getAllFromDatabase(modelMeetings));
-})
-.post( (req, res, next) => {
-    const newMeeting = db.createMeeting();
-    res.send(newMeeting);
-})
-.delete( (req, res, next) => {
-    db.deleteAllFromDatabase(modelMeetings);
-});
-
+// Mount new meetingRouter below at the '/ideas' path.
+const meetingRouter = require('./apiMeeting.js');
+apiRouter.use('/meetings', meetingRouter);
 
 module.exports = apiRouter;
