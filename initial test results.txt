@@ -1,0 +1,365 @@
+  /api/minions routes
+    GET /api/minions
+      √ returns an array
+      √ returns an array of all minions
+    GET /minions/:minionId
+      1) returns a single minion object
+      2) returns a full minion object
+      3) returned minion has the correct id
+      √ called with a non-numeric ID returns a 404 error
+      √ called with an invalid ID returns a 404 error
+    PUT /api/minions/:minionId
+      4) updates the correct minion and returns it
+      5) updates the correct minion and persists to the database
+      √ called with a non-numeric ID returns a 404 error
+      √ called with an invalid ID returns a 404 error
+      √ called with an invalid ID does not change the database array
+    POST /api/minions
+ReferenceError: body is not defined
+    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\server\api.js:19:36
+    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:137:13)
+    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:131:14)
+    at Route.dispatch (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
+    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:174:3)        
+    at router (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:323:13)
+    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
+    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
+    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\body-parser\lib\read.js:130:5
+    at invokeCallback (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:224:16)
+    at done (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:213:7)
+    at IncomingMessage.onEnd (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:273:7)
+    at IncomingMessage.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+      6) should add a new minion if all supplied information is correct
+    DELETE /api/minions
+      7) deletes the correct minion by id
+      √ called with a non-numeric ID returns a 404 error
+      √ called with an invalid ID returns a 404 error
+
+  /api/ideas routes
+    GET /api/ideas
+      √ returns an array
+      √ returns an array of all ideas
+    GET /ideas/:ideaId
+      8) returns a single idea object
+      9) returns a full idea object with correct properties
+      10) returned idea has the correct id
+      √ called with a non-numeric ID returns a 404 error
+      √ called with an invalid ID returns a 404 error
+    PUT /api/ideas/:ideaId
+      11) updates the correct idea and returns it
+      12) updates the correct idea and persists to the database
+      √ called with a non-numeric ID returns a 404 error
+      √ called with an invalid ID returns a 404 error
+      √ called with an invalid ID does not change the database array
+    POST /api/ideas
+      13) should add a new idea if all supplied information is correct
+    DELETE /api/ideas
+      14) deletes the correct minion by id
+      √ called with a non-numeric ID returns a 404 error
+      √ called with an invalid ID returns a 404 error
+
+  checkMillionDollarIdea middleware
+    15) is a function takes three arguments
+    16) sends a 400 error if the total yield is less than one million dollars
+    17) calls next for ideas that will yield at least one million dollars
+    18) sends a 400 error if numWeeks or weeklyRevenue is not supplied
+    19) sends a 400 error if numWeeks or weeklyRevenue is an invalid string
+    20) is used in a POST /api/ideas route to reject insufficiently profitable ideas
+
+  /api/meetings routes
+    GET /api/meetings
+      √ returns an array
+      √ returns an array of all meetings
+    POST /api/meetings
+      21) should create a new meetings and return it
+      22) should persist the created meeting to the database
+    DELETE /api/meetings route
+      23) deletes all meetings
+
+  BONUS: /api/minions/:minionId/work routes
+    GET /api/minions/:minionId/work
+      - returns an array
+      - returns an array of all all work for the specified minion
+      - called with a non-numeric minion ID returns a 404 error
+      - called with an invalid ID minion returns a 404 error
+    PUT /api/minions/:minionId/work/:workId
+      - updates the correct work and returns it
+      - updates the correct work item and persists to the database
+      - called with a non-numeric minion ID returns a 404 error
+      - called with an invalid minion ID returns a 404 error
+      - called with a non-numeric work ID returns a 404 error
+      - called with an invalid work ID returns a 404 error
+      - called with an invalid ID does not change the database array
+      - returns a 400 if a work ID with the wrong :minionId is requested
+    POST /api/minions/:minionId/work
+      - should add a new work item if all supplied information is correct
+    DELETE /api/minions/:minionId/work/:workId
+      - deletes the correct work by id
+      - called with a non-numeric minion ID returns a 404 error
+      - called with an invalid minion ID returns a 404 error
+      - called with a non-numeric work ID returns a 404 error
+      - called with an invalid work ID returns a 404 error
+
+
+  20 passing (6s)
+  18 pending
+  23 failing
+
+  1) /api/minions routes
+       GET /minions/:minionId
+         returns a single minion object:
+     Error: expected 200 "OK", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  2) /api/minions routes
+       GET /minions/:minionId
+         returns a full minion object:
+     Error: expected 200 "OK", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  3) /api/minions routes
+       GET /minions/:minionId
+         returned minion has the correct id:
+     Error: expected 200 "OK", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  4) /api/minions routes
+       PUT /api/minions/:minionId
+         updates the correct minion and returns it:
+
+      AssertionError: expected {} to deeply equal { name: 'Test' }
+      + expected - actual
+
+      -{}
+      +{
+      +  "name": "Test"
+      +}
+
+      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:107:44
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+  5) /api/minions routes
+       PUT /api/minions/:minionId
+         updates the correct minion and persists to the database:
+     AssertionError: expected undefined to equal 'Persistence Test'
+      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:131:46
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+  6) /api/minions routes
+       POST /api/minions
+         should add a new minion if all supplied information is correct:
+     Error: expected 201 "Created", got 500 "Internal Server Error"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  7) /api/minions routes
+       DELETE /api/minions
+         deletes the correct minion by id:
+     Error: expected 204 "No Content", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  8) /api/ideas routes
+       GET /ideas/:ideaId
+         returns a single idea object:
+     Error: expected 200 "OK", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  9) /api/ideas routes
+       GET /ideas/:ideaId
+         returns a full idea object with correct properties:
+     Error: expected 200 "OK", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  10) /api/ideas routes
+       GET /ideas/:ideaId
+         returned idea has the correct id:
+     Error: expected 200 "OK", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  11) /api/ideas routes
+       PUT /api/ideas/:ideaId
+         updates the correct idea and returns it:
+
+      AssertionError: expected {} to deeply equal { name: 'Test' }
+      + expected - actual
+
+      -{}
+      +{
+      +  "name": "Test"
+      +}
+
+      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:344:44
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+  12) /api/ideas routes
+       PUT /api/ideas/:ideaId
+         updates the correct idea and persists to the database:
+     AssertionError: expected undefined to equal 'Persistence Test'
+      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:368:44
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+  13) /api/ideas routes
+       POST /api/ideas
+         should add a new idea if all supplied information is correct:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js)
+      at listOnTimeout (node:internal/timers:568:17)
+      at processTimers (node:internal/timers:510:7)
+
+  14) /api/ideas routes
+       DELETE /api/ideas
+         deletes the correct minion by id:
+     Error: expected 204 "No Content", got 404 "Not Found"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  15) checkMillionDollarIdea middleware
+       is a function takes three arguments:
+
+      AssertionError: expected +0 to equal 3
+      + expected - actual
+
+      -0
+      +3
+
+      at Context.<anonymous> (test\test.js:519:46)
+      at processImmediate (node:internal/timers:473:21)
+
+  16) checkMillionDollarIdea middleware
+       sends a 400 error if the total yield is less than one million dollars:
+     AssertionError: expected null to equal 400
+      at Context.<anonymous> (test\test.js:529:23)
+      at processImmediate (node:internal/timers:473:21)
+
+  17) checkMillionDollarIdea middleware
+       calls next for ideas that will yield at least one million dollars:
+
+      AssertionError: expected false to be true
+      + expected - actual
+
+      -false
+      +true
+
+      at Context.<anonymous> (test\test.js:538:29)
+      at processImmediate (node:internal/timers:473:21)
+
+  18) checkMillionDollarIdea middleware
+       sends a 400 error if numWeeks or weeklyRevenue is not supplied:
+     AssertionError: expected null to equal 400
+      at Context.<anonymous> (test\test.js:543:23)
+      at processImmediate (node:internal/timers:473:21)
+
+  19) checkMillionDollarIdea middleware
+       sends a 400 error if numWeeks or weeklyRevenue is an invalid string:
+     AssertionError: expected null to equal 400
+      at Context.<anonymous> (test\test.js:554:23)
+      at processImmediate (node:internal/timers:473:21)
+
+  20) checkMillionDollarIdea middleware
+       is used in a POST /api/ideas route to reject insufficiently profitable ideas:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js)
+      at listOnTimeout (node:internal/timers:568:17)
+      at processTimers (node:internal/timers:510:7)
+
+  21) /api/meetings routes
+       POST /api/meetings
+         should create a new meetings and return it:
+     Error: expected 201 "Created", got 200 "OK"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  22) /api/meetings routes
+       POST /api/meetings
+         should persist the created meeting to the database:
+     Error: expected 201 "Created", got 200 "OK"
+      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+      at Test.assert (node_modules\supertest\lib\test.js:173:18)
+      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+      at Object.onceWrapper (node:events:509:28)
+      at Server.emit (node:events:390:28)
+      at emitCloseNT (node:net:1677:8)
+      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+  23) /api/meetings routes
+       DELETE /api/meetings route
+         deletes all meetings:
+     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js)
+      at listOnTimeout (node:internal/timers:568:17)
+      at processTimers (node:internal/timers:510:7)
