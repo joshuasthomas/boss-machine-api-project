@@ -1,419 +1,146 @@
 /api/minions routes
-    GET /api/minions 
-      √ returns an array (59ms)
-      √ returns an array of all minions
-    GET /minions/:minionId
-test getting one
-id: 1
-{
-  id: '1',
-  name: 'Judge Schroeder',
-  title: 'Investor Accounts Supervisor',
-  weaknesses: 'Cannot do best-of-breed info-mediaries, Unable to execute interactive structure, Unable to execute global paradigm, too neural',
-  salary: 40000
-}
-      √ returns a single minion object
-test getting one
-id: 1
-{
-  id: '1',
-  name: 'Judge Schroeder',
-  title: 'Investor Accounts Supervisor',
-  weaknesses: 'Cannot do best-of-breed info-mediaries, Unable to execute interactive structure, Unable to execute global paradigm, too neural',
-  salary: 40000
-}
-      √ returns a full minion object
-test getting one
-id: 1
-{
-  id: '1',
-  name: 'Judge Schroeder',
-  title: 'Investor Accounts Supervisor',
-  weaknesses: 'Cannot do best-of-breed info-mediaries, Unable to execute interactive structure, Unable to execute global paradigm, too neural',
-  salary: 40000
-}
-      √ returned minion has the correct id
-      √ called with a non-numeric ID returns a 404 error
-      √ called with an invalid ID returns a 404 error
-    PUT /api/minions/:minionId
-test getting one
-id: 1
-{
-  id: '1',
-  name: 'Judge Schroeder',
-  title: 'Investor Accounts Supervisor',
-  weaknesses: 'Cannot do best-of-breed info-mediaries, Unable to execute interactive structure, Unable to execute global paradigm, too neural',
-  salary: 40000
-}
-      1) updates the correct minion and returns it
-test getting one
-id: 1
-{
-  id: '1',
-  name: 'Judge Schroeder',
-  title: 'Investor Accounts Supervisor',
-  weaknesses: 'Cannot do best-of-breed info-mediaries, Unable to execute interactive structure, Unable to execute global paradigm, too neural',
-  salary: 40000
-}
-test getting one
-id: 1
-{
-  id: '1',
-  name: 'Judge Schroeder',
-  title: 'Investor Accounts Supervisor',
-  weaknesses: 'Cannot do best-of-breed info-mediaries, Unable to execute interactive structure, Unable to execute global paradigm, too neural',
-  salary: 40000
-}
-      2) updates the correct minion and persists to the database
-      √ called with a non-numeric ID returns a 404 error
-      √ called with an invalid ID returns a 404 error
-      √ called with an invalid ID does not change the database array (38ms)
-    POST /api/minions
-ReferenceError: body is not defined
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\server\apiMinion.js:16:36
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:137:13)
-    at Route.dispatch (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:112:3)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:281:22
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at Function.handle (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:174:3)        
-    at router (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:47:12)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:323:13)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:284:7
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at Function.handle (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:174:3)        
-    at router (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:47:12)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:323:13)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:284:7
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\body-parser\lib\read.js:130:5
-    at invokeCallback (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:224:16)
-    at done (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:213:7)
-    at IncomingMessage.onEnd (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:273:7)
-    at IncomingMessage.emit (node:events:402:35)
-    at endReadableNT (node:internal/streams/readable:1343:12)
-    at processTicksAndRejections (node:internal/process/task_queues:83:21)
-      3) should add a new minion if all supplied information is correct
-    DELETE /api/minions
-      √ deletes the correct minion by id
-      √ called with a non-numeric ID returns a 404 error
-      √ called with an invalid ID returns a 404 error
+GET /api/minions
+  √ returns an array
+  √ returns an array of all minions
+GET /minions/:minionId
+  √ returns a single minion object
+  √ returns a full minion object
+  √ returned minion has the correct id
+  √ called with a non-numeric ID returns a 404 error
+  √ called with an invalid ID returns a 404 error
+PUT /api/minions/:minionId
+  √ updates the correct minion and returns it
+  √ updates the correct minion and persists to the database
+  √ called with a non-numeric ID returns a 404 error
+  √ called with an invalid ID returns a 404 error
+  √ called with an invalid ID does not change the database array
+POST /api/minions
+  √ should add a new minion if all supplied information is correct
+DELETE /api/minions
+  √ deletes the correct minion by id
+  √ called with a non-numeric ID returns a 404 error
+  √ called with an invalid ID returns a 404 error
 
-  /api/ideas routes
-    GET /api/ideas
-      √ returns an array
-      √ returns an array of all ideas
-    GET /ideas/:ideaId
-      √ returns a single idea object
-      √ returns a full idea object with correct properties
-      √ returned idea has the correct id
-      √ called with a non-numeric ID returns a 404 error
-      √ called with an invalid ID returns a 404 error
-    PUT /api/ideas/:ideaId
-      4) updates the correct idea and returns it
-      5) updates the correct idea and persists to the database
-      √ called with a non-numeric ID returns a 404 error
-      √ called with an invalid ID returns a 404 error
-      √ called with an invalid ID does not change the database array
-    POST /api/ideas
-ReferenceError: body is not defined
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\server\apiIdea.js:16:34
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:137:13)
-    at Route.dispatch (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:112:3)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:281:22
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at Function.handle (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:174:3)        
-    at router (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:47:12)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:323:13)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:284:7
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at Function.handle (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:174:3)        
-    at router (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:47:12)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:323:13)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:284:7
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\body-parser\lib\read.js:130:5
-    at invokeCallback (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:224:16)
-    at done (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:213:7)
-    at IncomingMessage.onEnd (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:273:7)
-    at IncomingMessage.emit (node:events:402:35)
-    at endReadableNT (node:internal/streams/readable:1343:12)
-    at processTicksAndRejections (node:internal/process/task_queues:83:21)
-      6) should add a new idea if all supplied information is correct
-    DELETE /api/ideas
-      √ deletes the correct minion by id
-      √ called with a non-numeric ID returns a 404 error
-      √ called with an invalid ID returns a 404 error
+/api/ideas routes
+GET /api/ideas
+  √ returns an array
+  √ returns an array of all ideas
+GET /ideas/:ideaId
+  √ returns a single idea object
+  √ returns a full idea object with correct properties
+  √ returned idea has the correct id
+  √ called with a non-numeric ID returns a 404 error
+  √ called with an invalid ID returns a 404 error
+PUT /api/ideas/:ideaId
+  √ updates the correct idea and returns it
+  √ updates the correct idea and persists to the database
+  √ called with a non-numeric ID returns a 404 error
+  √ called with an invalid ID returns a 404 error
+  √ called with an invalid ID does not change the database array
+POST /api/ideas
+  √ should add a new idea if all supplied information is correct
+DELETE /api/ideas
+  √ deletes the correct minion by id
+  √ called with a non-numeric ID returns a 404 error
+  √ called with an invalid ID returns a 404 error
 
-  checkMillionDollarIdea middleware
-    7) is a function takes three arguments
-    8) sends a 400 error if the total yield is less than one million dollars
-    9) calls next for ideas that will yield at least one million dollars
-    10) sends a 400 error if numWeeks or weeklyRevenue is not supplied
-    11) sends a 400 error if numWeeks or weeklyRevenue is an invalid string
-ReferenceError: body is not defined
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\server\apiIdea.js:16:34
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:137:13)
-    at Route.dispatch (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\route.js:112:3)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:281:22
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at Function.handle (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:174:3)        
-    at router (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:47:12)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:323:13)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:284:7
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at Function.handle (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:174:3)        
-    at router (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:47:12)
-    at Layer.handle [as handle_request] (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:323:13)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:284:7
-    at Function.process_params (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:341:12)
-    at next (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\express\lib\router\index.js:275:10)
-    at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\body-parser\lib\read.js:130:5
-    at invokeCallback (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:224:16)
-    at done (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:213:7)
-    at IncomingMessage.onEnd (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\node_modules\raw-body\index.js:273:7)
-    at IncomingMessage.emit (node:events:402:35)
-    at endReadableNT (node:internal/streams/readable:1343:12)
-    at processTicksAndRejections (node:internal/process/task_queues:83:21)
-    12) is used in a POST /api/ideas route to reject insufficiently profitable ideas
+checkMillionDollarIdea middleware
+1) is a function takes three arguments
+2) sends a 400 error if the total yield is less than one million dollars
+3) calls next for ideas that will yield at least one million dollars
+4) sends a 400 error if numWeeks or weeklyRevenue is not supplied
+5) sends a 400 error if numWeeks or weeklyRevenue is an invalid string
+6) is used in a POST /api/ideas route to reject insufficiently profitable ideas
 
-  /api/meetings routes
-    GET /api/meetings
-      √ returns an array
-      √ returns an array of all meetings
-    POST /api/meetings
-      13) should create a new meetings and return it
-      14) should persist the created meeting to the database
-    DELETE /api/meetings route
-      15) deletes all meetings
+/api/meetings routes
+GET /api/meetings
+  √ returns an array
+  √ returns an array of all meetings
+POST /api/meetings
+  √ should create a new meetings and return it
+  √ should persist the created meeting to the database
+DELETE /api/meetings route
+  √ deletes all meetings
 
-  BONUS: /api/minions/:minionId/work routes
-    GET /api/minions/:minionId/work
-      - returns an array
-      - returns an array of all all work for the specified minion
-      - called with a non-numeric minion ID returns a 404 error
-      - called with an invalid ID minion returns a 404 error
-    PUT /api/minions/:minionId/work/:workId
-      - updates the correct work and returns it
-      - updates the correct work item and persists to the database
-      - called with a non-numeric minion ID returns a 404 error
-      - called with an invalid minion ID returns a 404 error
-      - called with a non-numeric work ID returns a 404 error
-      - called with an invalid work ID returns a 404 error
-      - called with an invalid ID does not change the database array
-      - returns a 400 if a work ID with the wrong :minionId is requested
-    POST /api/minions/:minionId/work
-      - should add a new work item if all supplied information is correct
-    DELETE /api/minions/:minionId/work/:workId
-      - deletes the correct work by id
-      - called with a non-numeric minion ID returns a 404 error
-      - called with an invalid minion ID returns a 404 error
-      - called with a non-numeric work ID returns a 404 error
-      - called with an invalid work ID returns a 404 error
+BONUS: /api/minions/:minionId/work routes
+GET /api/minions/:minionId/work
+  - returns an array
+  - returns an array of all all work for the specified minion
+  - called with a non-numeric minion ID returns a 404 error
+  - called with an invalid ID minion returns a 404 error
+PUT /api/minions/:minionId/work/:workId
+  - updates the correct work and returns it
+  - updates the correct work item and persists to the database
+  - called with a non-numeric minion ID returns a 404 error
+  - called with an invalid minion ID returns a 404 error
+  - called with a non-numeric work ID returns a 404 error
+  - called with an invalid work ID returns a 404 error
+  - called with an invalid ID does not change the database array
+  - returns a 400 if a work ID with the wrong :minionId is requested
+POST /api/minions/:minionId/work
+  - should add a new work item if all supplied information is correct
+DELETE /api/minions/:minionId/work/:workId
+  - deletes the correct work by id
+  - called with a non-numeric minion ID returns a 404 error
+  - called with an invalid minion ID returns a 404 error
+  - called with a non-numeric work ID returns a 404 error
+  - called with an invalid work ID returns a 404 error
 
 
-  28 passing (3s)
-  18 pending
-  15 failing
+37 passing (162ms)
+18 pending
+6 failing
 
-  1) /api/minions routes
-       PUT /api/minions/:minionId
-         updates the correct minion and returns it:
+1) checkMillionDollarIdea middleware
+    is a function takes three arguments:
 
-      AssertionError: expected { id: '2', …(4) } to deeply equal { id: '1', name: 'Test', …(3) }
-      + expected - actual
+  AssertionError: expected +0 to equal 3
+  + expected - actual
 
-       {
-      -  "id": "2"
-      -  "name": "Greta Kertzmann"
-      +  "id": "1"
-      +  "name": "Test"
-         "salary": 40000
-      -  "title": "International Creative Associate"
-      -  "weaknesses": "Cannot do granular data-warehouse, Unable to execute visionary project, Will not build sexy analyzer, too bluetooth"
-      +  "title": "Investor Accounts Supervisor"
-      +  "weaknesses": "Cannot do best-of-breed info-mediaries, Unable to execute interactive structure, Unable to execute global paradigm, too neural"        
-       }
+  -0
+  +3
 
-      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:107:44
-      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+  at Context.<anonymous> (test\test.js:519:46)
+  at processImmediate (node:internal/timers:473:21)
 
-  2) /api/minions routes
-       PUT /api/minions/:minionId
-         updates the correct minion and persists to the database:
+2) checkMillionDollarIdea middleware
+    sends a 400 error if the total yield is less than one million dollars:
+  AssertionError: expected null to equal 400
+  at Context.<anonymous> (test\test.js:529:23)
+  at processImmediate (node:internal/timers:473:21)
 
-      AssertionError: expected 'Judge Schroeder' to equal 'Persistence Test'
-      + expected - actual
+3) checkMillionDollarIdea middleware
+    calls next for ideas that will yield at least one million dollars:
 
-      -Judge Schroeder
-      +Persistence Test
+  AssertionError: expected false to be true
+  + expected - actual
 
-      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:131:46
-      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+  -false
+  +true
 
-  3) /api/minions routes
-       POST /api/minions
-         should add a new minion if all supplied information is correct:
-     Error: expected 201 "Created", got 500 "Internal Server Error"
-      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
-      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
-      at Test.assert (node_modules\supertest\lib\test.js:173:18)
-      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
-      at Object.onceWrapper (node:events:509:28)
-      at Server.emit (node:events:390:28)
-      at emitCloseNT (node:net:1677:8)
-      at processTicksAndRejections (node:internal/process/task_queues:82:21)
+  at Context.<anonymous> (test\test.js:538:29)
+  at processImmediate (node:internal/timers:473:21)
 
-  4) /api/ideas routes
-       PUT /api/ideas/:ideaId
-         updates the correct idea and returns it:
+4) checkMillionDollarIdea middleware
+    sends a 400 error if numWeeks or weeklyRevenue is not supplied:
+  AssertionError: expected null to equal 400
+  at Context.<anonymous> (test\test.js:543:23)
+  at processImmediate (node:internal/timers:473:21)
 
-      AssertionError: expected { id: '2', …(4) } to deeply equal { id: '1', name: 'Test', …(3) }
-      + expected - actual
+5) checkMillionDollarIdea middleware
+    sends a 400 error if numWeeks or weeklyRevenue is an invalid string:
+  AssertionError: expected null to equal 400
+  at Context.<anonymous> (test\test.js:554:23)
+  at processImmediate (node:internal/timers:473:21)
 
-       {
-         "description": "The name says it all!!!"
-      -  "id": "2"
-      -  "name": "Uber but for e-services"
-      -  "numWeeks": 62
-      -  "weeklyRevenue": 49088
-      +  "id": "1"
-      +  "name": "Test"
-      +  "numWeeks": 91
-      +  "weeklyRevenue": 98217
-       }
-
-      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:344:44
-      at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-  5) /api/ideas routes
-       PUT /api/ideas/:ideaId
-         updates the correct idea and persists to the database:
-
-      AssertionError: expected 'Facebook but for schemas' to equal 'Persistence Test'
-      + expected - actual
-
-      -Facebook but for schemas
-      +Persistence Test
-
-      at C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js:368:44
-      at processTicksAndRejections (node:internal/process/task_queues:96:5)
-
-  6) /api/ideas routes
-       POST /api/ideas
-         should add a new idea if all supplied information is correct:
-     Error: expected 201 "Created", got 500 "Internal Server Error"
-      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
-      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
-      at Test.assert (node_modules\supertest\lib\test.js:173:18)
-      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
-      at Object.onceWrapper (node:events:509:28)
-      at Server.emit (node:events:390:28)
-      at emitCloseNT (node:net:1677:8)
-      at processTicksAndRejections (node:internal/process/task_queues:82:21)
-
-  7) checkMillionDollarIdea middleware
-       is a function takes three arguments:
-
-      AssertionError: expected +0 to equal 3
-      + expected - actual
-
-      -0
-      +3
-
-      at Context.<anonymous> (test\test.js:519:46)
-      at processImmediate (node:internal/timers:473:21)
-
-  8) checkMillionDollarIdea middleware
-       sends a 400 error if the total yield is less than one million dollars:
-     AssertionError: expected null to equal 400
-      at Context.<anonymous> (test\test.js:529:23)
-      at processImmediate (node:internal/timers:473:21)
-
-  9) checkMillionDollarIdea middleware
-       calls next for ideas that will yield at least one million dollars:
-
-      AssertionError: expected false to be true
-      + expected - actual
-
-      -false
-      +true
-
-      at Context.<anonymous> (test\test.js:538:29)
-      at processImmediate (node:internal/timers:473:21)
-
-  10) checkMillionDollarIdea middleware
-       sends a 400 error if numWeeks or weeklyRevenue is not supplied:
-     AssertionError: expected null to equal 400
-      at Context.<anonymous> (test\test.js:543:23)
-      at processImmediate (node:internal/timers:473:21)
-
-  11) checkMillionDollarIdea middleware
-       sends a 400 error if numWeeks or weeklyRevenue is an invalid string:
-     AssertionError: expected null to equal 400
-      at Context.<anonymous> (test\test.js:554:23)
-      at processImmediate (node:internal/timers:473:21)
-
-  12) checkMillionDollarIdea middleware
-       is used in a POST /api/ideas route to reject insufficiently profitable ideas:
-     Error: expected 400 "Bad Request", got 500 "Internal Server Error"
-      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
-      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
-      at Test.assert (node_modules\supertest\lib\test.js:173:18)
-      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
-      at Object.onceWrapper (node:events:509:28)
-      at Server.emit (node:events:390:28)
-      at emitCloseNT (node:net:1677:8)
-      at processTicksAndRejections (node:internal/process/task_queues:82:21)
-
-  13) /api/meetings routes
-       POST /api/meetings
-         should create a new meetings and return it:
-     Error: expected 201 "Created", got 200 "OK"
-      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
-      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
-      at Test.assert (node_modules\supertest\lib\test.js:173:18)
-      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
-      at Object.onceWrapper (node:events:509:28)
-      at Server.emit (node:events:390:28)
-      at emitCloseNT (node:net:1677:8)
-      at processTicksAndRejections (node:internal/process/task_queues:82:21)
-
-  14) /api/meetings routes
-       POST /api/meetings
-         should persist the created meeting to the database:
-     Error: expected 201 "Created", got 200 "OK"
-      at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
-      at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
-      at Test.assert (node_modules\supertest\lib\test.js:173:18)
-      at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
-      at Object.onceWrapper (node:events:509:28)
-      at Server.emit (node:events:390:28)
-      at emitCloseNT (node:net:1677:8)
-      at processTicksAndRejections (node:internal/process/task_queues:82:21)
-
-  15) /api/meetings routes
-       DELETE /api/meetings route
-         deletes all meetings:
-     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (C:\Users\joshu\Documents\Projects\Codeacademy\Back-end\boss-machine api-project\test\test.js)
-      at listOnTimeout (node:internal/timers:568:17)
-      at processTimers (node:internal/timers:510:7)
+6) checkMillionDollarIdea middleware
+    is used in a POST /api/ideas route to reject insufficiently profitable ideas:
+  Error: expected 400 "Bad Request", got 201 "Created"
+  at Test._assertStatus (node_modules\supertest\lib\test.js:268:12)
+  at Test._assertFunction (node_modules\supertest\lib\test.js:283:11)
+  at Test.assert (node_modules\supertest\lib\test.js:173:18)
+  at Server.localAssert (node_modules\supertest\lib\test.js:131:12)
+  at Object.onceWrapper (node:events:509:28)
+  at Server.emit (node:events:390:28)
+  at emitCloseNT (node:net:1677:8)
+  at processTicksAndRejections (node:internal/process/task_queues:82:21)
