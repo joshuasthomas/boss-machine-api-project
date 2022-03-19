@@ -2,9 +2,8 @@ const express = require('express');
 const { is } = require('express/lib/request');
 const meetingRouter = express.Router();
 const db = require('./db');
-
-//initialize db
 const modelMeetings = 'meetings';
+//initialize db
 meetings = db.getAllFromDatabase(modelMeetings);
 
 meetingRouter.get( "/", (req, res, next) => {

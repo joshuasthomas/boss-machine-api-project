@@ -3,17 +3,6 @@ const { is } = require('express/lib/request');
 const apiRouter = express.Router();
 const db = require('./db');
 
-const modelMinions = 'minions';
-const modelIdeas = 'ideas';
-const modelMeetings = 'meetings';
-const modelWork = 'work';
-
-//initialize db
-minions = db.getAllFromDatabase(modelMinions);
-ideas = db.getAllFromDatabase(modelIdeas);
-meetings = db.getAllFromDatabase(modelMeetings);
-//workdb
-
 // Mount new minionRouter below at the '/minions' path.
 const minionRouter = require('./apiMinion.js');
 apiRouter.use('/minions', minionRouter);

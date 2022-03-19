@@ -3,19 +3,16 @@ const { is } = require('express/lib/request');
 const ideaRouter = express.Router();
 const checkMillionDollarIdea = require('./checkMillionDollarIdea.js');
 const db = require('./db');
-
-//initialize db
 const modelIdeas = 'ideas';
-ideas = db.getAllFromDatabase(modelIdeas);
+//initialize db
+const ideas = db.getAllFromDatabase(modelIdeas);
 
 ideaRouter.get("/", (req, res, next) => {
     res.send(db.getAllFromDatabase(modelIdeas));
 });
 
 ideaRouter.post("/", checkMillionDollarIdea, (req, res, next) => {
-    const newIdea = req.body;
-
-    if(!newIdea){
+    if(!req.body){ //no json body included
         res.status(400).send();
     } else {
         db.addToDatabase(modelIdeas, newIdea);
@@ -25,32 +22,31 @@ ideaRouter.post("/", checkMillionDollarIdea, (req, res, next) => {
 
 //validate ideaId
 ideaRouter.param( "ideaId", (req, res, next, id) => {
-    //console.log(`Validate ideaId: ${id}`);
     const getIdea = ideas[id];
     if(getIdea) {
-        //console.log("It's validated");
         next()
     } else {
-        //console.log("I'm afraid its invalid.");
         res.status(404).send();
     }
 });
 
 ideaRouter.get(`/:ideaId`, (req, res, next) => {
-    const id = req.params.ideaId;
-    const reqMinion = db.getFromDatabaseById(modelIdeas, id);
+    const reqMinion = db.getFromDatabaseById(modelIdeas, req.params.ideaId);
     res.send(reqMinion);
 });
 
 ideaRouter.put(`/:ideaId`, (req, res, next) => {
-    //const id = req.params.ideaId;
-    const upMinion = db.updateInstanceInDatabase(modelIdeas, req.body );
-    res.send(upMinion);
+    if(req.is('json'))
+    {
+        const upMinion = db.updateInstanceInDatabase(modelIdeas, req.body );
+        res.send(upMinion);
+    } else {
+        res.status(400).send();
+    }
 });
 
 ideaRouter.delete(`/:ideaId`, (req, res, next) => {
-    const id = req.params.ideaId;
-    const isDeleted = db.deleteFromDatabasebyId(modelIdeas, id);
+    const isDeleted = db.deleteFromDatabasebyId(modelIdeas, req.params.ideaId);
     if(isDeleted) {res.status(204).send()};
     
 });
