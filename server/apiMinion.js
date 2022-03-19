@@ -13,8 +13,13 @@ minionRouter.get("/", (req, res, next) => {
 
 minionRouter.post("/", (req, res, next) => {
     const newMinion = req.body;
-    db.addToDatabase(modelMinions, body);
-    res.status(201).send();
+
+    if(!newMinion){
+        res.status(400).send();
+    } else {
+        db.addToDatabase('minions', newMinion);
+        res.status(201).send(newMinion);
+    }
 });
 
 //validate minionId
@@ -26,7 +31,7 @@ minionRouter.param("minionId", (req, res, next, id) => {
         next()
     } else {
         //console.log("I'm afraid its invalid.");
-        res.status(404).send();
+        res.status(404).send("Minion is not found");
     }
 })
 
@@ -40,9 +45,22 @@ minionRouter.get(`/:minionId`, (req, res, next) => {
 });
 
 minionRouter.put(`/:minionId`, (req, res, next) => {
-    const id = req.params.minionId;
-    const upMinion = db.updateInstanceInDatabase(modelMinions, minions[id] );
-    res.send(upMinion);
+    if(req.is('json'))
+    {
+        const id = req.params.minionId;
+        //console.log("id: " + id);
+        
+        let tobeupd = db.getFromDatabaseById(modelMinions, id);
+        //console.log(tobeupd);
+        //console.log(req.body);
+        const upMinion = db.updateInstanceInDatabase(modelMinions, req.body );
+        //console.log(upMinion);
+
+        res.send(upMinion);
+    } else {
+        res.status(400).send();
+    }
+    
 });
 
 minionRouter.delete(`/:minionId`, (req, res, next) => {

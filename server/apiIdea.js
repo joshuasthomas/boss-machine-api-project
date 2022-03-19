@@ -12,9 +12,14 @@ ideaRouter.get("/", (req, res, next) => {
 });
 
 ideaRouter.post("/", (req, res, next) => {
-    const newMinion = req.body;
-    db.addToDatabase(modelIdeas, body);
-    res.status(201).send();
+    const newIdea = req.body;
+
+    if(!newIdea){
+        res.status(400).send();
+    } else {
+        db.addToDatabase(modelIdeas, newIdea);
+        res.status(201).send(newIdea);
+    }
 });
 
 //validate ideaId
@@ -37,8 +42,8 @@ ideaRouter.get(`/:ideaId`, (req, res, next) => {
 });
 
 ideaRouter.put(`/:ideaId`, (req, res, next) => {
-    const id = req.params.ideaId;
-    const upMinion = db.updateInstanceInDatabase(modelIdeas, ideas[id] );
+    //const id = req.params.ideaId;
+    const upMinion = db.updateInstanceInDatabase(modelIdeas, req.body );
     res.send(upMinion);
 });
 
