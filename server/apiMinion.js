@@ -11,7 +11,8 @@ minionRouter.get("/", (req, res, next) => {
 });
 
 minionRouter.post("/", (req, res, next) => {
-    if(!req.body){  //no json body included
+    const newMinion = req.body;
+    if(!newMinion){  //no json body included
         res.status(400).send();
     } else {
         db.addToDatabase('minions', newMinion);

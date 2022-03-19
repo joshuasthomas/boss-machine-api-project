@@ -12,7 +12,8 @@ ideaRouter.get("/", (req, res, next) => {
 });
 
 ideaRouter.post("/", checkMillionDollarIdea, (req, res, next) => {
-    if(!req.body){ //no json body included
+    const newIdea = req.body;
+    if(!newIdea){ //no json body included
         res.status(400).send();
     } else {
         db.addToDatabase(modelIdeas, newIdea);
