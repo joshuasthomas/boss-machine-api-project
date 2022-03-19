@@ -1,6 +1,7 @@
 const express = require('express');
 const { is } = require('express/lib/request');
 const ideaRouter = express.Router();
+const checkMillionDollarIdea = require('./checkMillionDollarIdea.js');
 const db = require('./db');
 
 //initialize db
@@ -11,7 +12,7 @@ ideaRouter.get("/", (req, res, next) => {
     res.send(db.getAllFromDatabase(modelIdeas));
 });
 
-ideaRouter.post("/", (req, res, next) => {
+ideaRouter.post("/", checkMillionDollarIdea, (req, res, next) => {
     const newIdea = req.body;
 
     if(!newIdea){
