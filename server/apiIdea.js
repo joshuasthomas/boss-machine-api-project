@@ -1,5 +1,4 @@
 const express = require('express');
-const { is } = require('express/lib/request');
 const ideaRouter = express.Router();
 const checkMillionDollarIdea = require('./checkMillionDollarIdea.js');
 const db = require('./db');

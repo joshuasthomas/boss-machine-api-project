@@ -1,5 +1,4 @@
 const express = require('express');
-const { is } = require('express/lib/request');
 const meetingRouter = express.Router();
 const db = require('./db');
 const modelMeetings = 'meetings';
